@@ -41,11 +41,19 @@ public class RegisterActivity extends AppCompatActivity {
             editText.setError( "Email is required" );
             return;
         }
+        if (!Common.isValidEmailAddress(email)) {
+            editText.setError( "Please input valid email" );
+            return;
+        }
         //
         editText = (EditText) findViewById(R.id.healthCardNumber);
         String healthCardNumber = editText.getText().toString();
         if (Common.isEmpty(healthCardNumber)) {
             editText.setError( "Health card number is required" );
+            return;
+        }
+        if (!Common.isValidNumber(healthCardNumber)) {
+            editText.setError( "Please input only number" );
             return;
         }
         //

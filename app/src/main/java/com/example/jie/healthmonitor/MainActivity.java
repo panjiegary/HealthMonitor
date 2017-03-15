@@ -37,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
             editText.setError( "Email is required" );
             return;
         }
+        if (!Common.isValidEmailAddress(email)) {
+            editText.setError( "Please input valid email" );
+            return;
+        }
         //
         editText = (EditText) findViewById(R.id.main_password);
         String password = editText.getText().toString();
