@@ -20,43 +20,44 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void addUser(View view) {
-        EditText editText = (EditText) findViewById(R.id.password);
-        String password = editText.getText().toString();
-        if (Common.isEmpty(password)) {
-            Toast.makeText(getApplicationContext(), "Please input password", Toast.LENGTH_SHORT).show();
-            return;
-        }
         //
-        editText = (EditText) findViewById(R.id.repassword);
-        String repassword = editText.getText().toString();
-        //
-        editText = (EditText) findViewById(R.id.firstName);
+        EditText editText = (EditText) findViewById(R.id.firstName);
         String firstName = editText.getText().toString();
         if (Common.isEmpty(firstName)) {
-            Toast.makeText(getApplicationContext(), "Please input first name", Toast.LENGTH_SHORT).show();
+            editText.setError( "First name is required" );
             return;
         }
         //
         editText = (EditText) findViewById(R.id.lastName);
         String lastName = editText.getText().toString();
         if (Common.isEmpty(lastName)) {
-            Toast.makeText(getApplicationContext(), "Please input last name", Toast.LENGTH_SHORT).show();
+            editText.setError( "Last name is required" );
             return;
         }
         //
         editText = (EditText) findViewById(R.id.email);
         String email = editText.getText().toString();
         if (Common.isEmpty(email)) {
-            Toast.makeText(getApplicationContext(), "Please input email", Toast.LENGTH_SHORT).show();
+            editText.setError( "Email is required" );
             return;
         }
         //
         editText = (EditText) findViewById(R.id.healthCardNumber);
         String healthCardNumber = editText.getText().toString();
         if (Common.isEmpty(healthCardNumber)) {
-            Toast.makeText(getApplicationContext(), "Please input health card number", Toast.LENGTH_SHORT).show();
+            editText.setError( "Health card number is required" );
             return;
         }
+        //
+        editText = (EditText) findViewById(R.id.password);
+        String password = editText.getText().toString();
+        if (Common.isEmpty(password)) {
+            editText.setError( "Password is required" );
+            return;
+        }
+        //
+        editText = (EditText) findViewById(R.id.repassword);
+        String repassword = editText.getText().toString();
         //
         if (!password.equals(repassword)) {
             Toast.makeText(getApplicationContext(), "Please repeat password", Toast.LENGTH_SHORT).show();

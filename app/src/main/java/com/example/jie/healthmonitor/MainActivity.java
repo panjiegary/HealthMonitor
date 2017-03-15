@@ -34,14 +34,14 @@ public class MainActivity extends AppCompatActivity {
         EditText editText = (EditText) findViewById(R.id.main_email);
         String email = editText.getText().toString();
         if (Common.isEmpty(email)) {
-            Toast.makeText(getApplicationContext(), "Please input email", Toast.LENGTH_SHORT).show();
+            editText.setError( "Email is required" );
             return;
         }
         //
         editText = (EditText) findViewById(R.id.main_password);
         String password = editText.getText().toString();
-        if (Common.isEmpty(email)) {
-            Toast.makeText(getApplicationContext(), "Please input password", Toast.LENGTH_SHORT).show();
+        if (Common.isEmpty(password)) {
+            editText.setError( "Password is required" );
             return;
         }
         user.setEmail(email);
